@@ -1,17 +1,21 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+import Repos from "../repos/Repos";
 import Spinner from "../layout/spinner";
 import { Link } from "react-router-dom";
 
 export class User extends Component {
   componentDidMount() {
     this.props.getUser(this.props.match.params.login);
+    this.props.getUserRepos(this.props.match.params.login);
   }
 
   static propTypes = {
     loading: PropTypes.bool.isRequired,
     getUser: PropTypes.func.isRequired,
     user: PropTypes.object.isRequired,
+    repos: PropTypes.array.isRequired,
+    getUserRepos: PropTypes.func.isRequired,
   };
 
   render() {
@@ -31,7 +35,7 @@ export class User extends Component {
       hireable,
     } = this.props.user;
 
-    const { loading } = this.props;
+    const { loading, repos } = this.props;
 
     if (loading) return <Spinner />;
 
@@ -60,11 +64,16 @@ export class User extends Component {
           <div>
             {bio && (
               <Fragment>
-                <h3>Bio</h3>
+                <h3>Bio:</h3>
                 <p>{bio}</p>
               </Fragment>
             )}
-            <a href='{html_url}' className='btn btn-dark my-1' target='_blank'>
+            <a
+              href={html_url}
+              className='btn btn-dark my-1'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               Show Github Profile
             </a>
             <ul>
@@ -88,7 +97,7 @@ export class User extends Component {
                 {blog && (
                   <Fragment>
                     <strong>Website: </strong>
-                    <a href={blog} target='_blank'>
+                    <a href={blog} target='_blank' rel='noopener noreferrer'>
                       {blog}
                     </a>
                   </Fragment>
@@ -103,6 +112,7 @@ export class User extends Component {
           <div className='badge badge-light'>Repository: {public_repos}</div>
           <div className='badge badge-dark'>Gist: {public_gists}</div>
         </div>
+        <Repos repos={repos} />
       </Fragment>
     );
   }
