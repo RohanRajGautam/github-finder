@@ -3,7 +3,6 @@ import {
   SET_LOADING,
   GET_REPOS,
   CLEAR_USERS,
-  GET_USERS,
   GET_USER,
 } from "../types";
 

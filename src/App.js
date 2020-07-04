@@ -4,7 +4,6 @@ import Navbar from "./components/layout/Navbar";
 import User from "./components/users/User";
 import Alert from "./components/layout/Alert";
 import About from "./components/pages/About";
-import Repos from "./components/repos/Repos";
 import Home from "./components/pages/Home";
 import NotFound from "./components/pages/NotFound";
 import "./App.css";

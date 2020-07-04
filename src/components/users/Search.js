@@ -38,7 +38,7 @@ const Search = () => {
         />
         {githubContext.users.length > 0 && (
           <button
-            className='btn btn-primary btn-block'
+            className='btn btn-light btn-block'
             onClick={githubContext.clearUsers}
           >
             Clear
