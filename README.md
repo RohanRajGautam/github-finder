@@ -1,6 +1,11 @@
 # Github User Finder
 
-This is a simple application to get started with React development
+This is a simple application to get started with React development.
+
+---
+![homepage](https://i.imgur.com/DLXx4i3.png)
+
+![profile](https://i.imgur.com/DjfUSrw.png)
 
 ## What does it do?
 
